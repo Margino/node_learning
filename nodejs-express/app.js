@@ -5,8 +5,12 @@ app.get('/', (req, res) => {
     res.send('Hello!');
 });
 
-app.get('/hello', (req, res) => {
+app.get('/hello', (req, res, next) => {
     res.send('Hello there!');
+    next()
+},
+(req, res, next) => {
+    console.log('Text next()');
 });
 
 app.get('/game', (req, res) => {
