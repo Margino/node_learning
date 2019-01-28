@@ -6,16 +6,16 @@ app.get('/', (req, res) => {
     res.send('Hello!');
 });
 
-app.get('/hello', (req, res, next) => {
-    res.send('Hello there!');
+app.get('/hello/:id', (req, res, next) => {
+    res.send(`Hello there! + ${req.params.id}`);
     next()
 },
 (req, res, next) => {
-    console.log('Text next()');
+    console.log(`Text next() + params ${req.params.id}`);
 });
 
 app.get('/game', (req, res) => {
-    res.send('Game page');
+    res.send(`Game page with`);
 });
 
 app.use((req, res, next) => {
