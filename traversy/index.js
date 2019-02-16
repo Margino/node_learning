@@ -1,8 +1,10 @@
 'use strict';
-const Person = require('./module');
 
-const person1 = new Person({
-    age: 28,
-    name: 'John'
-});
-console.log(person1);
+const Logger = require('./logger');
+
+const logger = new Logger();
+
+logger.on('message', (data) => console.log(`Called Listener`, data));
+
+logger.log('Hello World!');
+logger.log('Hi there!');
